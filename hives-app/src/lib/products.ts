@@ -1,4 +1,4 @@
-import type { Product, CategoryInfo, Testimonial, MomentScene } from '@/types';
+import type { Product, CategoryInfo, Testimonial, MomentScene, CravingType } from '@/types';
 
 // ── Product Categories ──
 export const categories: CategoryInfo[] = [
