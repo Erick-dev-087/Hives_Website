@@ -4,24 +4,29 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Instagram, Facebook } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Button from '@/components/ui/Button';
 
-// Custom TikTok SVG icon since it's missing in some lucide-react versions
+// Custom TikTok SVG icon
 const TikTokIcon = ({ size = 24, className = "" }) => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    width={size} 
-    height={size} 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
-    strokeLinejoin="round" 
-    className={className}
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
     <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+  </svg>
+);
+
+// Custom Instagram SVG icon
+const InstagramIcon = ({ size = 24, className = "" }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+);
+
+// Custom Facebook SVG icon
+const FacebookIcon = ({ size = 24, className = "" }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
   </svg>
 );
 
@@ -106,7 +111,7 @@ export default function Navbar() {
                 className="text-hive/80 hover:text-honey transition-colors p-1"
                 aria-label="Instagram"
               >
-                <Instagram size={18} />
+                <InstagramIcon size={18} />
               </a>
               <a 
                 href="https://facebook.com" 
@@ -115,7 +120,7 @@ export default function Navbar() {
                 className="text-hive/80 hover:text-honey transition-colors p-1"
                 aria-label="Facebook"
               >
-                <Facebook size={18} />
+                <FacebookIcon size={18} />
               </a>
               <a 
                 href="https://tiktok.com/@hivespastries" 
@@ -190,7 +195,7 @@ export default function Navbar() {
                     className="w-10 h-10 rounded-full bg-hive text-cream flex items-center justify-center hover:bg-honey hover:text-hive transition-colors"
                     aria-label="Instagram"
                   >
-                    <Instagram size={18} />
+                    <InstagramIcon size={18} />
                   </a>
                   <a 
                     href="https://facebook.com" 
@@ -199,7 +204,7 @@ export default function Navbar() {
                     className="w-10 h-10 rounded-full bg-hive text-cream flex items-center justify-center hover:bg-honey hover:text-hive transition-colors"
                     aria-label="Facebook"
                   >
-                    <Facebook size={18} />
+                    <FacebookIcon size={18} />
                   </a>
                   <a 
                     href="https://tiktok.com/@hivespastries" 
