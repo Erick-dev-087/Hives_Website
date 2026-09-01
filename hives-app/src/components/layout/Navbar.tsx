@@ -4,8 +4,26 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Menu, X, Instagram, Facebook } from 'lucide-react';
 import Button from '@/components/ui/Button';
+
+// Custom TikTok SVG icon since it's missing in some lucide-react versions
+const TikTokIcon = ({ size = 24, className = "" }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+  </svg>
+);
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -100,13 +118,13 @@ export default function Navbar() {
                 <Facebook size={18} />
               </a>
               <a 
-                href="https://twitter.com" 
+                href="https://tiktok.com/@hivespastries" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-hive/80 hover:text-honey transition-colors p-1"
-                aria-label="Twitter"
+                aria-label="TikTok"
               >
-                <Twitter size={18} />
+                <TikTokIcon size={18} />
               </a>
             </div>
 
@@ -184,13 +202,13 @@ export default function Navbar() {
                     <Facebook size={18} />
                   </a>
                   <a 
-                    href="https://twitter.com" 
+                    href="https://tiktok.com/@hivespastries" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-hive text-cream flex items-center justify-center hover:bg-honey hover:text-hive transition-colors"
-                    aria-label="Twitter"
+                    aria-label="TikTok"
                   >
-                    <Twitter size={18} />
+                    <TikTokIcon size={18} />
                   </a>
                 </div>
 
