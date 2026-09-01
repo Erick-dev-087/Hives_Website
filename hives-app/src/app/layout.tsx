@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Sora } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import FloatingWhatsAppCTA from "@/components/ui/FloatingWhatsAppCTA";
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-body",
@@ -49,10 +50,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${plusJakarta.variable} ${sora.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-cream text-hive">
+      <body className="min-h-full flex flex-col bg-cream text-hive relative">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <FloatingWhatsAppCTA />
       </body>
     </html>
   );

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Instagram, Facebook, Twitter } from 'lucide-react';
 import Button from '@/components/ui/Button';
 
 const navLinks = [
@@ -77,8 +77,39 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* Desktop CTA & Socials */}
+          <div className="hidden md:flex items-center gap-5">
+            {/* Social Links */}
+            <div className="flex items-center gap-3 mr-2">
+              <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-hive/80 hover:text-honey transition-colors p-1"
+                aria-label="Instagram"
+              >
+                <Instagram size={18} />
+              </a>
+              <a 
+                href="https://facebook.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-hive/80 hover:text-honey transition-colors p-1"
+                aria-label="Facebook"
+              >
+                <Facebook size={18} />
+              </a>
+              <a 
+                href="https://twitter.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-hive/80 hover:text-honey transition-colors p-1"
+                aria-label="Twitter"
+              >
+                <Twitter size={18} />
+              </a>
+            </div>
+
             <Button
               href="https://wa.me/254759837429"
               variant="primary"
@@ -131,7 +162,38 @@ export default function Navbar() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
+                className="flex flex-col items-center gap-6"
               >
+                <div className="flex items-center gap-4">
+                  <a 
+                    href="https://instagram.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-hive text-cream flex items-center justify-center hover:bg-honey hover:text-hive transition-colors"
+                    aria-label="Instagram"
+                  >
+                    <Instagram size={18} />
+                  </a>
+                  <a 
+                    href="https://facebook.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-hive text-cream flex items-center justify-center hover:bg-honey hover:text-hive transition-colors"
+                    aria-label="Facebook"
+                  >
+                    <Facebook size={18} />
+                  </a>
+                  <a 
+                    href="https://twitter.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-hive text-cream flex items-center justify-center hover:bg-honey hover:text-hive transition-colors"
+                    aria-label="Twitter"
+                  >
+                    <Twitter size={18} />
+                  </a>
+                </div>
+
                 <Button
                   href="https://wa.me/254759837429"
                   variant="primary"
