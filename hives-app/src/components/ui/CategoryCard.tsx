@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
-import { cardHover, imageZoom } from '@/lib/animations';
+import { cardHover, cardTap, imageZoom } from '@/lib/animations';
 import type { CategoryInfo } from '@/types';
 
 interface CategoryCardProps {
@@ -29,6 +29,7 @@ export default function CategoryCard({ category, index = 0 }: CategoryCardProps)
         <motion.div
           className="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer shadow-sm"
           whileHover={cardHover}
+          whileTap={cardTap}
         >
           {/* Background image */}
           <motion.div className="absolute inset-0" whileHover={imageZoom}>

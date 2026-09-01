@@ -13,14 +13,27 @@ const pathData = "M 50 2 C 75 2, 75 18, 50 18 C 25 18, 25 38, 50 38 C 75 38, 75 
 
 export default function MadeForTheMoment() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const mobileContainerRef = useRef<HTMLDivElement>(null);
   
-  // Continuous scroll progress for the glowing line
+  // Continuous scroll progress for the glowing line (Desktop)
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start center', 'end center'],
   });
 
   const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  // Continuous scroll progress for the glowing line (Mobile)
+  const { scrollYProgress: mobileScrollY } = useScroll({
+    target: mobileContainerRef,
+    offset: ['start center', 'end center'],
+  });
+
+  const mobileSmoothProgress = useSpring(mobileScrollY, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001
@@ -110,18 +123,42 @@ export default function MadeForTheMoment() {
       </div>
 
       {/* Mobile Layout (Hidden on Desktop) */}
-      <div className="md:hidden px-4 space-y-12 pb-24 relative z-10">
-        {momentScenes.map((scene) => (
-          <div key={scene.id} className="bg-[#1A1A1A] rounded-2xl overflow-hidden border border-white/5 p-4 flex gap-4 items-center">
-            <div className="relative w-24 h-24 rounded-full overflow-hidden shrink-0">
-              <Image src={scene.image} alt={scene.title} fill className="object-cover" />
+      <div ref={mobileContainerRef} className="md:hidden relative px-4 pb-24 max-w-md mx-auto">
+        
+        {/* Mobile SVG Timeline Line */}
+        <div className="absolute left-8 top-0 bottom-24 w-1 z-0">
+          {/* Base faint line */}
+          <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-0.5 bg-white/5" />
+          
+          {/* Glowing illuminated line */}
+          <motion.div 
+            className="absolute top-0 left-1/2 -translate-x-1/2 w-0.5 bg-honey shadow-[0_0_8px_rgba(255,223,24,0.8)] origin-top"
+            style={{ scaleY: mobileSmoothProgress }}
+          />
+        </div>
+
+        <div className="space-y-12 relative z-10">
+          {momentScenes.map((scene) => (
+            <div key={scene.id} className="relative flex items-center gap-6">
+              
+              {/* Timeline Dot */}
+              <div className="relative shrink-0 flex items-center justify-center w-8">
+                <div className="w-3 h-3 rounded-full bg-honey shadow-[0_0_12px_rgba(255,223,24,0.9)] z-20" />
+              </div>
+              
+              {/* Card */}
+              <div className="bg-[#1A1A1A] rounded-2xl overflow-hidden border border-white/5 p-4 flex gap-4 items-center flex-1 shadow-lg">
+                <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden shrink-0 shadow-inner">
+                  <Image src={scene.image} alt={scene.title} fill className="object-cover" sizes="96px" />
+                </div>
+                <div>
+                  <h3 className="text-base sm:text-lg font-bold font-heading text-cream leading-tight">{scene.title}</h3>
+                  <p className="mt-1 text-[11px] sm:text-xs text-white/60 line-clamp-2 leading-relaxed">{scene.subtitle}</p>
+                </div>
+              </div>
             </div>
-            <div>
-              <h3 className="text-lg font-bold font-heading text-cream">{scene.title}</h3>
-              <p className="mt-1 text-xs text-white/60 line-clamp-2">{scene.subtitle}</p>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -91,6 +91,7 @@ export default function HeroSection() {
               initial="hidden"
               animate="visible"
               whileHover={{ rotate: 5, scale: 1.05 }}
+              whileTap={{ rotate: 8, scale: 0.95 }}
             >
               <Image
                 src="/images/cakes/birthday_cakes/Birthday_cake.png"
@@ -108,6 +109,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, x: -30, y: 20 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               whileHover={{ rotate: -5, scale: 1.05 }}
+              whileTap={{ rotate: -8, scale: 0.95 }}
               transition={{
                 delay: 0.4,
                 duration: 0.7,
@@ -131,6 +133,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: -20, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               whileHover={{ rotate: 8, scale: 1.05 }}
+              whileTap={{ rotate: 12, scale: 0.95 }}
               transition={{ delay: 0.6, duration: 0.6, ease: 'easeOut' }}
             >
               <Image
