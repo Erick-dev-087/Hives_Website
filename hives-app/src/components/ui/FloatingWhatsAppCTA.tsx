@@ -25,10 +25,10 @@ export default function FloatingWhatsAppCTA() {
         href="https://wa.me/254759837429"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center bg-[#25D366] text-white rounded-full shadow-[0_8px_30px_rgba(37,211,102,0.4)] overflow-hidden cursor-pointer"
+        className="flex items-center justify-center bg-[#151515] text-honey rounded-full shadow-2xl border border-honey/20 overflow-hidden cursor-pointer"
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        whileHover={{ scale: 1.05, boxShadow: '0 12px 40px rgba(37, 211, 102, 0.6)' }}
+        whileHover={{ scale: 1.05, borderColor: 'rgba(255, 223, 24, 0.5)' }}
         whileTap={{ scale: 0.95 }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -43,7 +43,7 @@ export default function FloatingWhatsAppCTA() {
                 initial={{ width: 0, opacity: 0, marginLeft: 0 }}
                 animate={{ width: 'auto', opacity: 1, marginLeft: 12 }}
                 exit={{ width: 0, opacity: 0, marginLeft: 0 }}
-                className="font-heading font-bold text-[15px] whitespace-nowrap overflow-hidden text-white"
+                className="font-heading font-bold text-[15px] whitespace-nowrap overflow-hidden text-cream"
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
               >
                 Order Now
