@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FloatingWhatsAppCTA from "@/components/ui/FloatingWhatsAppCTA";
+import { Analytics } from "@vercel/analytics/next";
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-body",
@@ -55,6 +56,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main className="flex-1">{children}</main>
         <Footer />
         <FloatingWhatsAppCTA />
+        <Analytics />
       </body>
     </html>
   );
